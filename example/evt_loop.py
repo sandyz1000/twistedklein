@@ -40,11 +40,14 @@ if __name__ == '__main__':
     selector.register(sys.stdin, selectors.EVENT_READ)
     last_hello = 0  # Setting to 0 means the timer will start right away
 
-    while True:
-        # Wait at most 100 milliseconds for input to be available
-        for event, mask in selector.select(0.1):
-            process_input(event.fileobj)
+    try:
+        while True:
+            # Wait at most 100 milliseconds for input to be available
+            for event, mask in selector.select(0.1):
+                process_input(event.fileobj)
 
-        if time() - last_hello > 3:
-            last_hello = time()
-            print_hello()
+            if time() - last_hello > 3:
+                last_hello = time()
+                print_hello()
+    except KeyboardInterrupt as e:
+        pass

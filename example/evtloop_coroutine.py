@@ -25,7 +25,7 @@ def log_execution_time(func):
 
 
 def fib(n):
-    yield fib(n - 1) + fib(n - 2) if n > 1 else n
+    yield (fib(n - 1) + fib(n - 2)) if n > 1 else n
 
 
 timed_fib = log_execution_time(fib)

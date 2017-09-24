@@ -34,7 +34,7 @@ def read_and_process_input():
         print('fib({}) = {}'.format(n, fib(n)))
 
 
-def main():
+if __name__ == '__main__':
     # Second thread will print the hello message. Starting as a daemon means
     # the thread will not prevent the process from exiting.
     t = Thread(target=print_hello)
@@ -42,7 +42,3 @@ def main():
     t.start()
     # Main thread will read and process input
     read_and_process_input()
-
-
-if __name__ == '__main__':
-    main()
